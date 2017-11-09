@@ -87,5 +87,4 @@ class Copy_File_Path():
 
 if __name__ == "__main__":
     cfp = Copy_File_Path()
-    cfp.get_path("/Users/tatsuyakonishi/Documents/Remote_command/TEST","/Users/tatsuyakonishi/Documents/")
      
