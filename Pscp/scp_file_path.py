@@ -26,20 +26,18 @@ class Copy_File_Path():
         local_create_dir = []
         # 作成するローカルのファイルパス
         local_file = []
-        # ルートディレクトリを作成
-        local_create_dir.append(local_path+root_dir)
+        root_dir = "/"+root_dir
         for j in remote_data:
             result = j.split(":")
             dir_name = result[0]
             if len(result) is 2 and result[1] is not "":
                 file_names = result[1].strip()
-                file_list = file_names.split("\n")
-                for j in file_list:
-                    file_dir_name = os.path.join(dir_name,j)
-                    under_dir_name = dir_name.split(root_dir)[1]
-                    local_file_path = local_path+root_dir + under_dir_name+"/"+j
-                    local_file.append(local_file_path)
-                    remote_copy_file.append(file_dir_name)
+                file_list = file_names.split("\n")[-1]
+                file_dir_name = os.path.join(dir_name,file_list)
+                under_dir_name = dir_name.split(root_dir)[1]
+                local_file_path = local_path+root_dir + under_dir_name+"/"+file_list
+                local_file.append(local_file_path)
+                remote_copy_file.append(file_dir_name)
             under_path = dir_name.split(root_dir)[1]
             dir_path = local_path + root_dir + under_path
             # コピー先のディレクトリパスを作成
@@ -62,9 +60,9 @@ class Copy_File_Path():
         ルートとなるファイルパスを取得する関数
         """
         root_dir = path.split("/")[-1]
-        return root_dir+"/"
+        return root_dir
 
-    def get_path(self,remote_path,local_path):
+    def get_path(self,remote_path,local_path,data):
         """
         ファイルパスを取得する関数
 
@@ -77,9 +75,9 @@ class Copy_File_Path():
             local_create_dir: ローカルのディレクトリパス
             local_file_path: ローカルのファイルパス
         """
-        command = ["ls","-R",remote_path]
-        result = subprocess.check_output(command)
-        data = result.decode("utf-8")
+        #command = ["ls","-R",remote_path]
+        #result = subprocess.check_output(command)
+        #data = data.decode("utf-8")
         data = data.strip()
         results = data.split("\n\n")
         files_data = self.pattern_search(results)
