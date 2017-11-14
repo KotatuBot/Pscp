@@ -25,7 +25,7 @@ class select_Choice():
             if "r" in self.dict_type.keys() is True:
                 self.ssh_con.get_dir(self.dict_type["from"],self.dict_type["to"])
             else:
-                # get file
+                self.
 
         elif self.dict_type["action"] is "put":
             # if dirs

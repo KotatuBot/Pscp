@@ -40,3 +40,9 @@ class Scp_Get():
             os.chdir(dirs_name)
             self.scp.get(remote_file_path[number])
         os.chdir(pwd)
+
+    def one_file(self,remote_file_path,local_file_path):
+        pwd = os.getcwd()
+        os.chdir(local_file_path)
+        self.scp.get(remote_file_path)
+        os.chdir(pwd)
