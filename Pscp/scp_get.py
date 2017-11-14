@@ -1,4 +1,5 @@
 import os
+
 from scp_file_path import Copy_File_Path
 
 """
@@ -10,12 +11,14 @@ class Scp_Get():
     def __init__(self,ssh,scp):
         self.ssh = ssh
         self.scp = scp
+        cfp = Copy_File_Path()
 
-    def get_data(self,remote_path):
+    def get_data(self,remote_path,local_path):
         command = 'ls -R {0}'.format(remote_path).encode("utf-8")
         stdin, stdout, stderr = self.ssh.exec_command(command)
         data = stdout.read().decode("utf-8")
-        return data
+        remote_copy_file,local_create_dir,local_file_path = cfp.get_path(remote_path,local_path,data)
+        return remote_copy_file,local_create_dir,local_file_path
 
     def local_create_dir(self,local_dir_path):
         """

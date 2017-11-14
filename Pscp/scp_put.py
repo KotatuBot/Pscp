@@ -11,12 +11,12 @@ class Scp_put():
         result = subprocess.check_output(command)
         data = result.decode("utf-8")
         local_copy_file,remote_create_dir,local_file_path = self.cfp.get_path(local_path,remote_path,data)
-        return local_copy_file,remote_create_dir,remote_file_path
+        return local_copy_file,remote_create_dir,local_file_path
 
-    def remote_mkdir(self,local_create_dir):
-        for dirs in local_create_dir:
+    def remote_mkdir(self,remote_create_dir):
+        for dirs in remote_create_dir:
             command = ["mkdir",dirs]
-            result = subprocess.check_output(command)
+            stdin, stdout, stderr = self.ssh.exec_command(command)
 
     def remote_put(self,local_file,remote_copy_file):
         for number in range(len(local_file)):
