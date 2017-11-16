@@ -26,9 +26,19 @@ class Storage_Data():
 
 
     def fetch_database(self,keywords):
+        one_list = ""
         conn = sqlite3.connect(self.database_name)
         c = conn.cursor()
         select_sql = "select * from {database_table} where keys=?".format(database_table=self.database_table)
         for row in c.execute(select_sql,[keywords]):
-            print(row)
+            one_list = row
+        return one_list
+
+    def show_database(self):
+        conn = sqlite3.connect(self.database_name)
+        c = conn.cursor()
+        select_sql = "select * from {database_table}".format(database_table=self.database_table)
+        show_data = c.execute(select_sql)
+        c.close()
+
 
