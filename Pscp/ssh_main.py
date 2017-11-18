@@ -1,6 +1,7 @@
 import sys
 from select_choice import select_Choice
 from command import Command
+from getpass import getpass
 
 message  = """"  
               ________  ________  ________  ________
@@ -16,18 +17,20 @@ message  = """"
 print(message)
 
 while True:
-    command = input(">>> ")
+    commands = input(">>> ")
 
-    if command=="exit":
+    if commands=="exit":
         sys.exit()
 
     else:
-        com = Command()
-        dicts = com.command_start(command)
-        sc = select_choice(dicts)
+        command = Command()
+        # optionのディクトを作成する
+        dicts = command.command_start(commands)
         if dicts["action"] is "get" or dicts["action"] is "put":
-            passd = input("password")
-            sc.get_put_fetch(passd)
+            password = getpass("Password: ")
+            # それぞれの処理を行う
+            sc = select_choice(dicts)
+            sc.get_put_fetch(password)
         elif dicts["action"] is "show":
             sc.shows()
 
