@@ -1,8 +1,8 @@
 from ssh_connect import SSh_Connect
 from storage_data import Storage_Data
-class select_Choice():
+class Select_Choice():
 
-    def __init__(self,dict_type,ssh,scp):
+    def __init__(self,dict_type):
         self.dict_type = dict_type
         self.ssh_con = SSh_Connect()
         self.sd = Storage_Data()
@@ -37,11 +37,20 @@ class select_Choice():
     def shows(self):
         show_data = self.sd.show_database()
         # 登録情報を表示
-        for data in show_data:
-            print(data)
+        for user,hostname,Keywords in show_data:
+            print("Keywords: {keysd}".format(keysd=Keywords))
+            print("USER     ---> {users}".format(users=user))
+            print("Host_name---> {host}".format(host=hostname))
+            print("\n")
 
-    def register(self,keywords=""):
-        self.sd.fetch_database(keywords)
+    def register(self):
+        print("Please input your username")
+        username = input("USER: ")
+        print("Please input your hostname")
+        hostname = input("HOST_NAME: ")
+        print("Please input your keyword")
+        keywords = input("KEYWORDS:" )
+        self.sd.insert_database(username,hostname,keywords)
         print("Register log")
         
         

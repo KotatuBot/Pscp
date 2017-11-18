@@ -1,9 +1,9 @@
 import sys
-from select_choice import select_Choice
-from command import Command
+from select_choice import Select_Choice
+from commands import Command
 from getpass import getpass
 
-message  = """"  
+message  = """  
               ________  ________  ________  ________
              |\   __  \|\   ____\|\   ____\|\   __  \  
              \ \  \|\  \ \  \___|\ \  \___|\ \  \|\  \ 
@@ -26,17 +26,15 @@ while True:
         command = Command()
         # optionのディクトを作成する
         dicts = command.command_start(commands)
-        if dicts["action"] is "get" or dicts["action"] is "put":
+        sc = Select_Choice(dicts)
+        if dicts["action"]=="get" or dicts["action"]=="put":
             password = getpass("Password: ")
             # それぞれの処理を行う
-            sc = select_choice(dicts)
             sc.get_put_fetch(password)
-        elif dicts["action"] is "show":
+        elif dicts["action"]=="show":
             sc.shows()
-
-        elif dicts["action"] is "register":
-            keywords = command.split(" ")[1]
-            sc.register(keywords)
+        elif dicts["action"]=="register":
+            sc.register()
         else:
            pass 
             

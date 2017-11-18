@@ -2,8 +2,8 @@ import sqlite3
 
 class Storage_Data():
     def __init__(self):
-        self.database_name = ""
-        self.database_table = ""
+        self.database_name = "alias.db"
+        self.database_table = "alias_table"
 
     def create_data(self):
         conn = sqlite3.connect(self.database_name)
@@ -38,7 +38,8 @@ class Storage_Data():
         conn = sqlite3.connect(self.database_name)
         c = conn.cursor()
         select_sql = "select * from {database_table}".format(database_table=self.database_table)
-        show_data = c.execute(select_sql)
+        show_data = list(c.execute(select_sql))
         c.close()
+        return show_data
 
 

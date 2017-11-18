@@ -5,7 +5,6 @@ from scp_get import Scp_Get
 from scp_put import Scp_put
 from scp_file_path import Copy_File_Path
 from commands import Command
-from select_choice import select_Choice
 
 
 class SSh_Connect():
