@@ -46,3 +46,4 @@ class Scp_Get():
         os.chdir(local_file_path)
         self.scp.get(remote_file_path)
         os.chdir(pwd)
+        print("test")

@@ -8,19 +8,20 @@ class Select_Choice():
         self.sd = Storage_Data()
 
     def get_put_fetch(self,password):
-        users = self.dict_type["user"]
+        user = self.dict_type["user"]
         host  = self.dict_type["hostname"]
         self.ssh_con.connect(host,user,password)
         # get or put
-        if self.dict_type["action"] is "get":
+        if self.dict_type["action"]=="get":
             # if dirs
             if "r" in self.dict_type.keys() is True:
                 self.ssh_con.get_dir(self.dict_type["from"],self.dict_type["to"])
                 # get file
             else:
+                print("aaa")
                 self.ssh_con.get(self.dict_type["from"],self.dict_type["to"])
 
-        elif self.dict_type["action"] is "put":
+        elif self.dict_type["action"]=="put":
             # if dirs
             if "r" in self.dict_type.keys() is True:
                 self.ssh_con.put_dir(self.dict_type["from"],self.dict_type["to"])
@@ -29,7 +30,7 @@ class Select_Choice():
                 self.ssh_con.put(self.dict_type["from"],self.dict_type["to"])
 
         else:
-            pass
+            print("bbb")
 
 
 
