@@ -18,7 +18,6 @@ class Select_Choice():
                 self.ssh_con.get_dir(self.dict_type["from"],self.dict_type["to"])
                 # get file
             else:
-                print("aaa")
                 self.ssh_con.get(self.dict_type["from"],self.dict_type["to"])
 
         elif self.dict_type["action"]=="put":
@@ -30,7 +29,9 @@ class Select_Choice():
                 self.ssh_con.put(self.dict_type["from"],self.dict_type["to"])
 
         else:
-            print("bbb")
+            print("Error")
+
+        self.ssh_con.close()
 
 
 
@@ -38,11 +39,14 @@ class Select_Choice():
     def shows(self):
         show_data = self.sd.show_database()
         # 登録情報を表示
-        for user,hostname,Keywords in show_data:
-            print("Keywords: {keysd}".format(keysd=Keywords))
-            print("USER     ---> {users}".format(users=user))
-            print("Host_name---> {host}".format(host=hostname))
-            print("\n")
+        if len(show_data)!=0:
+            for user,hostname,Keywords in show_data:
+                print("Keywords: {keysd}".format(keysd=Keywords))
+                print("USER     ---> {users}".format(users=user))
+                print("Host_name---> {host}".format(host=hostname))
+                print("\n")
+        else:
+            print("Not register data")
 
     def register(self):
         print("Please input your username")

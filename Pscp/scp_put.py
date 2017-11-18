@@ -23,8 +23,8 @@ class Scp_put():
             self.scp.put(local_file[number],remote_copy_file[number])
 
 
-    def one_remote_put(self,local_file,remote_copy_file):
-        self.scp.put(local_file_path,remote_file_path)
+    def one_remote_put(self,local_file_path,remote_copy_file):
+        self.scp.put(local_file_path,remote_copy_file)
 
 
 if __name__ == "__main__":
