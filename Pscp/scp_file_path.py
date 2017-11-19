@@ -32,14 +32,23 @@ class Copy_File_Path():
             dir_name = result[0]
             if len(result) is 2 and result[1] is not "":
                 file_names = result[1].strip()
-                file_list = file_names.split("\n")[-1]
-                file_dir_name = os.path.join(dir_name,file_list)
-                under_dir_name = dir_name.split(root_dir)[1]
-                local_file_path = local_path+root_dir + under_dir_name+"/"+file_list
-                local_file.append(local_file_path)
-                remote_copy_file.append(file_dir_name)
-            under_path = dir_name.split(root_dir)[1]
-            dir_path = local_path + root_dir + under_path
+                # dir_nameに対するファイルパスを作成する
+                file_list = file_names.split("\n")
+                for file_name in file_list:
+                    file_list = file_name.split("/")
+                    if len(file_list)!=2:
+                        origin_file = os.path.join(dir_name,file_name)
+                        test = dir_name+"/"
+                        under_dir_name = test.split(root_dir+"/")[1]
+                        if under_dir_name == "":
+                            local_file_path = local_path + root_dir + under_dir_name +"/"+file_name
+                        else:
+                            local_file_path = local_path + root_dir + "/" + under_dir_name + file_name
+                        local_file.append(local_file_path)
+                        remote_copy_file.append(origin_file)
+            test = dir_name + "/"
+            under_path = test.split(root_dir+"/")[1]
+            dir_path = local_path + root_dir +"/"+under_path
             # コピー先のディレクトリパスを作成
             local_create_dir.append(dir_path)
         return remote_copy_file,local_create_dir,local_file 

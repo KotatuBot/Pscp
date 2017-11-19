@@ -14,7 +14,7 @@ class Select_Choice():
         # get or put
         if self.dict_type["action"]=="get":
             # if dirs
-            if "r" in self.dict_type.keys() is True:
+            if ("r" in self.dict_type.keys())==True:
                 self.ssh_con.get_dir(self.dict_type["from"],self.dict_type["to"])
                 # get file
             else:
@@ -22,7 +22,7 @@ class Select_Choice():
 
         elif self.dict_type["action"]=="put":
             # if dirs
-            if "r" in self.dict_type.keys() is True:
+            if ("r" in self.dict_type.keys())==True:
                 self.ssh_con.put_dir(self.dict_type["from"],self.dict_type["to"])
             else:
                 # put file

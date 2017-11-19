@@ -12,11 +12,12 @@ class SSh_Connect():
         self.ssh = ""
         self.scp = ""
 
-    def get_dir(self,local_path,remote_path):
+    def get_dir(self,remote_path,local_path):
         scp_get = Scp_Get(self.ssh,self.scp)
         remote_copy_file,local_create_dir,local_file_path = scp_get.get_data(remote_path,local_path)
         scp_get.local_create_dir(local_create_dir)
         scp_get.local_create_file(remote_copy_file,local_file_path)
+        print("Finish Geting")
 
     def get(self,remote_path,local_path):
         scp_get = Scp_Get(self.ssh,self.scp)
