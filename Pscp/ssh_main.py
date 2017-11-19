@@ -2,6 +2,7 @@ import sys
 from select_choice import Select_Choice
 from commands import Command
 from getpass import getpass
+from help import Help
 
 
 message1 = "You can check arguments with the help"
@@ -25,7 +26,8 @@ while True:
     if commands=="exit":
         sys.exit()
     elif commands == "help":
-        print(commands)
+         helps = Help()
+         helps.help_show()
     else:
         command = Command()
         # optionのディクトを作成する
@@ -35,8 +37,6 @@ while True:
                 password = getpass("Password: ")
                 # それぞれの処理を行う
                 sc.get_put_fetch(password)
-            else:
-                print("Not set argment of --from and --to")
         elif dicts["action"]=="show":
             sc.shows()
         elif dicts["action"]=="register":
