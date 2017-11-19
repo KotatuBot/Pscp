@@ -84,9 +84,6 @@ class Copy_File_Path():
             local_create_dir: ローカルのディレクトリパス
             local_file_path: ローカルのファイルパス
         """
-        #command = ["ls","-R",remote_path]
-        #result = subprocess.check_output(command)
-        #data = data.decode("utf-8")
         data = data.strip()
         results = data.split("\n\n")
         files_data = self.pattern_search(results)

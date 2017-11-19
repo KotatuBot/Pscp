@@ -3,6 +3,8 @@ from select_choice import Select_Choice
 from commands import Command
 from getpass import getpass
 
+
+message1 = "You can check arguments with the help"
 message  = """  
               ________  ________  ________  ________
              |\   __  \|\   ____\|\   ____\|\   __  \  
@@ -14,6 +16,7 @@ message  = """
                           \|_________|                 
           """                                                               
 
+print(message1)
 print(message)
 
 while True:
@@ -21,22 +24,22 @@ while True:
 
     if commands=="exit":
         sys.exit()
-
+    elif commands == "help":
+        print(commands)
     else:
         command = Command()
         # optionのディクトを作成する
         dicts = command.command_start(commands)
         sc = Select_Choice(dicts)
         if dicts["action"]=="get" or dicts["action"]=="put":
-            password = getpass("Password: ")
-            # それぞれの処理を行う
-            sc.get_put_fetch(password)
+                password = getpass("Password: ")
+                # それぞれの処理を行う
+                sc.get_put_fetch(password)
+            else:
+                print("Not set argment of --from and --to")
         elif dicts["action"]=="show":
             sc.shows()
         elif dicts["action"]=="register":
             sc.register()
         else:
-           pass 
-            
-
-
+           print("Icorrect argument or command ")
