@@ -8,7 +8,7 @@ setup(
         pacakges=["Pscp"],
         entry_points={
             'console_scripts': [
-                'pscp = Pscp.__main__:main'
+                'Pscp = Pscp.__main__:main'
                 ]
             },
         )
