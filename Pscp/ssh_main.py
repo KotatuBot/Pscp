@@ -5,6 +5,7 @@ from getpass import getpass
 import Pscp.select_choice as choice
 import Pscp.commands as pcommand
 import Pscp.ssh_help as helps
+import Pscp.storage_data as storage
 
 
 def main():
@@ -31,6 +32,9 @@ def main():
         elif commands == "help":
             shelp = helps.SSh_Help()
             shelp.help_show()
+        elif commands == "create":
+            st = storage.Storage_Data()
+            st.create_data()
         else:
             command = pcommand.Command()
             # optionのディクトを作成する
