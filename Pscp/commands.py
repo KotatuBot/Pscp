@@ -1,12 +1,12 @@
 import re
 import os
 
-import Pscp.storage_data
+from storage_data import Storage_Data
 
 class Command():
     def __init__(self):
         self.command_dict = {}
-        self.storage = Pscp.storage_data.Storage_Data()
+        self.storage = Storage_Data()
         message = r"~/*"
         self.home_pattern = re.compile(message)
 

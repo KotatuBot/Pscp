@@ -1,9 +1,9 @@
 import sys
 
-import Pscp.select_choice
-import Pscp.commands 
+from select_choice import Select_Choice
+from Pscp.commands import Command 
 from getpass import getpass
-import Pscp.ssh_help
+from ssh_help import SSh_Help
 
 
 def main():
@@ -28,13 +28,13 @@ def main():
         if commands=="exit":
             sys.exit()
         elif commands == "help":
-            shelp = Pscp.ssh_help.SSh_Help()
+            shelp = SSh_Help()
             shelp.help_show()
         else:
-            command = Pscp.commands.Command()
+            command = Command()
             # optionのディクトを作成する
             dicts = command.command_start(commands)
-            sc = Pscp.select_choice.Select_Choice(dicts)
+            sc = Select_Choice(dicts)
             if dicts["action"]=="get" or dicts["action"]=="put":
                     from_string = dicts["from"]
                     to_string = dicts["to"]
