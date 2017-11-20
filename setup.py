@@ -8,6 +8,6 @@ setup(
         pacakges=find_packages(),
         entry_points="""
                      [console_scripts]
-                     greet = Pscp.ssh_main:main
+                     Pscp = Pscp.ssh_main:main
                      """,
         )
