@@ -1,8 +1,10 @@
 import sqlite3
+import os
 
 class Storage_Data():
     def __init__(self):
-        self.database_name = "alias.db"
+        home_dir = os.environ["HOME"]
+        self.database_name = home_dir +"/"+".alias.db"
         self.database_table = "alias_table"
 
     def create_data(self):
