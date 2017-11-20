@@ -14,7 +14,6 @@ class Command():
         """
         host name
         """
-        print(self.command_dict)
         if ("c" in self.command_dict.keys()) is True:
             user_host = self.command_dict["c"]
             user_list = user_host.split("@")

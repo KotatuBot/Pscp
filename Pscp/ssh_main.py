@@ -34,9 +34,18 @@ while True:
         dicts = command.command_start(commands)
         sc = Select_Choice(dicts)
         if dicts["action"]=="get" or dicts["action"]=="put":
-                password = getpass("Password: ")
-                # それぞれの処理を行う
-                sc.get_put_fetch(password)
+                from_string = dicts["from"]
+                to_string = dicts["to"]
+                if from_string == "from" or to_string == "to":
+                    print("Path is not set for --from or --to")
+                elif from_string == "" or to_string=="":
+                    print("There is too much space between --from or --to and the path.")
+                    print("Please leave one blank space")
+                else:
+                    print(froms,to)
+                    password = getpass("Password: ")
+                    # それぞれの処理を行う
+                    sc.get_put_fetch(password)
         elif dicts["action"]=="show":
             sc.shows()
         elif dicts["action"]=="register":

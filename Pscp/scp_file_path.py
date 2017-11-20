@@ -2,9 +2,6 @@ import subprocess
 import re
 import os
 
-"""
-コピー元のファイルを作成
-"""
 class Copy_File_Path():
     def __init__(self):
         pass
