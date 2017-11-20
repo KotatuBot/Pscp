@@ -1,24 +1,14 @@
+import re
+import os
 
-
-"""
-get -c pi@10.1.121.24 -from remote -to local
-
-get -n rasp -from remote -to local
-
-put -c pi@10.1.121.24 -from remote -to local
-
-put -n rasp -from remote -to local
-
-regester --> register user and IP
-
-show --> IP shows 
-"""
 from storage_data import Storage_Data
 
 class Command():
     def __init__(self):
         self.command_dict = {}
         self.storage = Storage_Data()
+        message = r"~/*"
+        self.home_pattern = re.compile(message)
 
     def user_host(self):
         """
@@ -43,12 +33,23 @@ class Command():
             print("argment is not -c or -r")
             return (False,False)
 
+    def home_change(self,keys):
+        paths = self.command_dict[keys]
+        # home/dir/ is True
+        if len(re.findall(self.home_pattern,paths)) == 1:
+            file_list = paths.split("~")
+            absolute_file = os.environ["HOME"]+file_list[1]
+            self.command_dict[keys]=absolute_file
+
+
     def action_type(self):
         """
         get action
         """
         if self.command_dict["action"]=="get" or self.command_dict["action"]=="put":
              if ("from" in self.command_dict.keys())is True and ("to" in self.command_dict.keys()) is True:
+                 self.home_change("from")
+                 self.home_change("to")
                  user,hostname = self.user_host()
                  self.command_dict["user"] = user
                  self.command_dict["hostname"] = hostname

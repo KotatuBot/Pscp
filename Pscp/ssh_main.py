@@ -2,7 +2,7 @@ import sys
 from select_choice import Select_Choice
 from commands import Command
 from getpass import getpass
-from help import Help
+from ssh_help import SSh_Help
 
 
 message1 = "You can check arguments with the help"
@@ -26,8 +26,8 @@ while True:
     if commands=="exit":
         sys.exit()
     elif commands == "help":
-         helps = Help()
-         helps.help_show()
+        shelp = SSh_Help()
+        shelp.help_show()
     else:
         command = Command()
         # optionのディクトを作成する

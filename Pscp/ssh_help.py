@@ -1,4 +1,4 @@
-class Help():
+class SSh_Help():
     def __init__(self):
         pass
 
@@ -42,7 +42,3 @@ class Help():
                   
                   """
         print(message)
-
-if __name__ == "__main__":
-    he = Help()
-    he.help_show()
