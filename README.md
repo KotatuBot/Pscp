@@ -75,4 +75,16 @@ You can set your user name and host name as your own words
     $ cd Pscp
     $ python setup.py install
     $ Pscp
+    You can check arguments with the help
+
+                  ________  ________  ________  ________
+                 |\   __  \|\   ____\|\   ____\|\   __  \
+                 \ \  \|\  \ \  \___|\ \  \___|\ \  \|\  \
+                  \ \   ____\ \_____  \ \  \    \ \   ____
+                   \ \  \___|\|____|\  \ \  \____\ \  \___|
+                    \ \__\     ____\_\  \ \_______\ \__\
+                     \|__|    |\_________\|_______|\|__|
+                              \|_________|
+
     >>> create
+    >>> exit
