@@ -8,6 +8,6 @@ setup(
         pacakges=find_packages(),
         entry_points="""
                      [console_scripts]
-                     Pscp = Pscp.ssh_main:main
+                     ssh_main.py = Pscp.ssh_main:main
                      """,
         )
