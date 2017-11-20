@@ -55,5 +55,5 @@ def main():
             else:
                print("Icorrect argument or command ")
 
-if ___name__=="__main__":
+if __name__=="__main__":
     main()
