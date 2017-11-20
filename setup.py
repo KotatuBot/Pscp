@@ -4,7 +4,7 @@ setup(
         name="Pscp",
         version="0.1",
         decription="Application that makes scp command easy",
-        url="https://github.com/KotatuBot/Pscp.git",
+        url="https://github.com/KotatuBot/Pscp",
         pacakges=find_packages(),
         entry_points="""
                      [console_scripts]
