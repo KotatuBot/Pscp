@@ -1,13 +1,14 @@
-from setuptools import setup,find_packages
+from setuptools import setup
 
 setup(
         name="Pscp",
         version="0.1",
         decription="Application that makes scp command easy",
         url="https://github.com/KotatuBot/Pscp",
-        pacakges=find_packages(),
-        entry_points="""
-                     [console_scripts]
-                     Pscp = ssh_main.py:main
-                     """,
+        pacakges=["Pscp"],
+        entry_points={
+            'console_scripts': [
+                'pscp = Pscp.__main__:main'
+                ]
+            },
         )
