@@ -1,6 +1,6 @@
 import os
 
-from scp_file_path import Copy_File_Path
+from Pscp.scp_file_path import Copy_File_Path
 
 """
 リモートからローカルに

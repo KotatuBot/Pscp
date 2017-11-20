@@ -68,3 +68,6 @@ You can set your user name and host name as your own words
 
          show  
             --> Display all registered items
+
+## Installation
+

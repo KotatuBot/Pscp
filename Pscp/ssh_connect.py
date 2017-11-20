@@ -1,10 +1,10 @@
 from paramiko import SSHClient,AutoAddPolicy
 from scp import SCPClient
 
-from scp_get import Scp_Get
-from scp_put import Scp_put
-from scp_file_path import Copy_File_Path
-from commands import Command
+from Pscp.scp_get import Scp_Get
+from Pscp.scp_put import Scp_put
+from Pscp.scp_file_path import Copy_File_Path
+from Pscp.commands import Command
 
 
 class SSh_Connect():

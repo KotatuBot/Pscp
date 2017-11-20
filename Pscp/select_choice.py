@@ -1,5 +1,5 @@
-from ssh_connect import SSh_Connect
-from storage_data import Storage_Data
+from Pscp.ssh_connect import SSh_Connect
+from Pscp.storage_data import Storage_Data
 class Select_Choice():
 
     def __init__(self,dict_type):
