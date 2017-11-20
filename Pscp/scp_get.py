@@ -1,6 +1,6 @@
 import os
 
-from scp_file_path import Copy_File_Path
+import Pscp.scp_file_path
 
 """
 リモートからローカルに
@@ -11,7 +11,7 @@ class Scp_Get():
     def __init__(self,ssh,scp):
         self.ssh = ssh
         self.scp = scp
-        self.cfp = Copy_File_Path()
+        self.cfp = Pscp.scp_file_path.Copy_File_Path()
 
     def get_data(self,remote_path,local_path):
         command = 'ls -RF {0}'.format(remote_path).encode("utf-8")
