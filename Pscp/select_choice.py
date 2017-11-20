@@ -1,11 +1,11 @@
-from ssh_connect import SSh_Connect
-from storage_data import Storage_Data
+import Pscp.ssh_connect as connects
+import Pscp.storage_data as storage
 class Select_Choice():
 
     def __init__(self,dict_type):
         self.dict_type = dict_type
-        self.ssh_con = SSh_Connect()
-        self.sd = Storage_Data()
+        self.ssh_con = connects.SSh_Connect()
+        self.sd = storage.Storage_Data()
 
     def get_put_fetch(self,password):
         user = self.dict_type["user"]

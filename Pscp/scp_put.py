@@ -1,10 +1,10 @@
 import subprocess
 import os
 
-from scp_file_path import Copy_File_Path
+import Pscp.scp_file_path as scp_file
 class Scp_put():
     def __init__(self,ssh,scp):
-        self.cfp = Copy_File_Path()
+        self.cfp = scp_file.Copy_File_Path()
         self.ssh = ssh
         self.scp = scp
 
