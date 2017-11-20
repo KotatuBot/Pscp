@@ -34,7 +34,7 @@ def main():
             shelp = helps.SSh_Help()
             shelp.help_show()
         elif commands == "create":
-            if os.path.isfile("alias")==False:
+            if os.path.isfile("alias.db")==False:
                 st = storage.Storage_Data()
                 st.create_data()
             else:
