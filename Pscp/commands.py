@@ -25,7 +25,9 @@ class Command():
             keyword = self.command_dict["n"]
             information = self.storage.fetch_database(keyword)
             if len(information)==3:
-                return information
+                user = infromation[0]
+                host = infromation[1]
+                return (user,host)
             else:
                 return (False,False)
         else:
