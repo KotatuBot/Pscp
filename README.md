@@ -55,13 +55,13 @@ You can set your user name and host name as your own words
              --> Copy test.txt to the mikan user's /home/mikan directory using alias rasp
 
          get -r -c mikan@10.1.13.45 -from /home/kotatu/TEST2 -to /home/mikan  
-            --> Copy the TEST 2 directory to the mikan user's /home/mikan directory
+            --> Copy the TEST2 directory to the mikan user's /home/mikan directory
 
          put -c mikan@10.1.13.45 -from /home/mikan/test.txt -to /home/TEST  
             --> Upload test.txt in mikan user's /home/mikan directory to /home/TEST
 
          put -r -c mikan@10.1.13.45 -from /home/mikan/TEST2 -to /home/TEST  
-            --> Upload the TEST 2 directory of mikan user's /home/mikan to /home/TEST
+            --> Upload the TEST2 directory of mikan user's /home/mikan to /home/TEST
 
          register  
             --> Register alias
