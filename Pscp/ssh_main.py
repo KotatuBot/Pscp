@@ -1,4 +1,5 @@
 import sys
+import os.path
 
 from getpass import getpass
 
@@ -33,8 +34,11 @@ def main():
             shelp = helps.SSh_Help()
             shelp.help_show()
         elif commands == "create":
-            st = storage.Storage_Data()
-            st.create_data()
+            if os.path.isfile("alias")==False:
+                st = storage.Storage_Data()
+                st.create_data()
+            else:
+                print("Exists Database")
         else:
             command = pcommand.Command()
             # optionのディクトを作成する
