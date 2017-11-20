@@ -5,7 +5,7 @@ class SSh_Help():
     def help_show(self):
         message = """
         usage:\n
-             [action] [-r] [-c user@hostname] [-n Keywords] [-from ] [-to]\n
+             [action] [-r] [-c user@hostname] [-n Keywords] [-from Source_path] [-to Destination_path]\n
         [action]: \n
                  You can specify the following actions\n
                  get: Retrieve files from remote

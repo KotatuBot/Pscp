@@ -16,7 +16,7 @@ You can set your user name and host name as your own words
 
 **usage**:
 
-      [action] [-r] [-c user@hostname] [-n Keywords] [-from ] [-to]
+      [action] [-r] [-c user@hostname] [-n Register_Keyword] [-from Source_path] [-to Destination_path]
 
 **[action]**: 
          You can specify the following actions
