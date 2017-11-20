@@ -9,7 +9,7 @@ setup(
         py_modules=['Pscp'],
         entry_points={
             'console_scripts': [
-                'Pscp = Pscp.__main__:main'
+                'Pscp = Pscp:main'
                 ]
             },
         )
