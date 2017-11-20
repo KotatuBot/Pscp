@@ -1,9 +1,9 @@
 import sys
 
-from Pscp.select_choice import Select_Choice
-from Pscp.commands import Command
-from Pscp.getpass import getpass
-from Pscp.ssh_help import SSh_Help
+from select_choice import Select_Choice
+from commands import Command
+from getpass import getpass
+from ssh_help import SSh_Help
 
 
 def main():
