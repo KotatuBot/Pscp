@@ -6,7 +6,6 @@ setup(
         decription="Application that makes scp command easy",
         url="https://github.com/KotatuBot/Pscp",
         pacakges=["Pscp"],
-        py_modules=['Pscp'],
         entry_points={
             'console_scripts': [
                 'Pscp = Pscp.__main__:main'
