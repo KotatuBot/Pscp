@@ -21,6 +21,8 @@ class Scp_put():
             stdin, stdout, stderr = self.ssh.exec_command(command)
 
     def remote_put(self,local_file,remote_copy_file):
+        print(local_file)
+        print(remote_copy_file)
         for number in range(len(local_file)):
             remote_dir = os.path.split(remote_copy_file[number])
             self.scp.put(local_file[number],remote_dir[0])
