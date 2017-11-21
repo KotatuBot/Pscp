@@ -53,7 +53,6 @@ def main():
                         print("There is too much space between --from or --to and the path.")
                         print("Please leave one blank space")
                     else:
-                        print(froms,to)
                         password = getpass("Password: ")
                         # それぞれの処理を行う
                         sc.get_put_fetch(password)
