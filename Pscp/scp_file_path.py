@@ -50,7 +50,7 @@ class Copy_File_Path():
             local_create_dir.append(dir_path)
         return remote_copy_file,local_create_dir,local_file 
 
-    def pattern_search(self,data):
+    def pattern_search(self,data,local_path):
         """
         ファイルが存在するかを判断する関数
         """
@@ -58,7 +58,7 @@ class Copy_File_Path():
         hits = repattern.match(data[0])
         # もしひとつ目が:でないならば
         if hits is None:
-            data = data[1:]
+            data = [local_path+":\n"+data[0]]+data[1:]
         return data
 
     def get_root_dir(self,path):
@@ -83,7 +83,7 @@ class Copy_File_Path():
         """
         data = data.strip()
         results = data.split("\n\n")
-        files_data = self.pattern_search(results)
+        files_data = self.pattern_search(results,remote_path)
         root = self.get_root_dir(remote_path)
         remote_copy_file,local_create_dir,local_file_path = self.file_path_dir(root,files_data,local_path)
         return remote_copy_file,local_create_dir,local_file_path 
