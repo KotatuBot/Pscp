@@ -17,7 +17,7 @@ class Scp_put():
 
     def remote_mkdir(self,remote_create_dir):
         for dirs in remote_create_dir:
-            command = "mkdir {dir_name}".format(dir_name=dirs).encode("utf-8")
+            command = "mkdir -p {dir_name}".format(dir_name=dirs).encode("utf-8")
             stdin, stdout, stderr = self.ssh.exec_command(command)
 
     def remote_put(self,local_file,remote_copy_file):
