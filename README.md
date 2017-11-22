@@ -88,3 +88,6 @@ You can set your user name and host name as your own words
 
     >>> create
     >>> exit
+
+# Licence
+[MIT](https://github.com/KotatuBot/Pscp/blob/master/LICENSE.txt)
