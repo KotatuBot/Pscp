@@ -71,6 +71,8 @@ You can set your user name and host name as your own words
 
 ## Installation
 
+    $ pip install paramiko
+    $ pip install scp
     $ git clone https://github.com/KotatuBot/Pscp.git
     $ cd Pscp
     $ python setup.py install
