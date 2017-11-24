@@ -91,5 +91,9 @@ You can set your user name and host name as your own words
     >>> create
     >>> exit
 
+# Author
+
+[KotatuBot](https://github.com/KotatuBot)
+
 # Licence
 [MIT](https://github.com/KotatuBot/Pscp/blob/master/LICENSE.txt)
